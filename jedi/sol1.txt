@@ -1,0 +1,6 @@
+plane 5
+tribal 9
+sorcery 12
+scheme 13
+land 16
+creature 17
