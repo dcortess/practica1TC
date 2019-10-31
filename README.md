@@ -16,11 +16,7 @@ Aquest es el disseny que hem implementat per resoldre el problema de manera **it
 
 Que equival a la formula (Taula representada en l'apartat "Taules de costos segons el disseny"):
 
-$T(n) = n + 1 + n + 1$
-
-$T(n) = 2n + 2$
-
-$O(n) = n$
+$O(n) = log_{10} n $
 
 El cost del millor cas seria quan el numero esta format per 1 digit, el cost seria 1.
 En el pitjor dels casos, tindria n digits.
@@ -28,7 +24,7 @@ Cas promig: depen de la probabilitat de cada instancia.
 El cost seria el sumatori de (i+1)*(1/n)  que es igual a (n+1)/2
 
 
-El disseny que hem implementat per resoldre el problema de manera **recursiva** es el següent:
+El disseny que hem implementat per resoldre el problema de manera **recursiva** es el segï¿½ent:
 
     def decryptRecursive(value):
         value = str(value)
@@ -43,11 +39,8 @@ El disseny que hem implementat per resoldre el problema de manera **recursiva** 
 
 Que equival a la formula (Taula representada en l'apartat "Taules de costos segons el disseny"):
 
-$T(n) = n + n + n^2 + n^2 + n + n + n + n + n$
 
-$T(n) = 7n + 2n^2$
-
-$O(n) = n^2$
+$O(n) = log_{10} n $
 
 
 ### Experiments amb diferents valors
@@ -73,13 +66,32 @@ $O(n) = n^2$
 
 
 ### Grafiques i taules
+#### Grafica del cost de l'algorisme
+
+    import random
+    import math
+    import time
+
+    n = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] #Numero de termes
+    lis  = [0,0.3,0.47,0.60,0.69,0.77,0.84,0.90,0.95,1,1.04,1.07,1.11,1.14,1.17,1.20,1.23,1.25,1.27,1.30]
+
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    plt.plot(n,lis, 'g',label='iteratiu')
+    plt.xlabel('Numero de termes')
+    plt.ylabel('Temps (microsegons)')
+    plt.title('Temps Iteratiu i Recursiu')
+    plt.legend()
+    plt.show()
+
 #### Taules de costos segons el disseny
 Disseny iteratiu
 
 | Linia |                Operacio                   | Cost |  Iteracions  |
 |-------|-------------------------------------------|------|--------------|
-|   1   |              `while value>9`              |  C1  |     n+1      |
-|   2   | `value = sum(int(i) for i in str(value))` |  C2  |      n       |
+|   1   |              `while value>9`              |  C1  |  log_{10}+1  |
+|   2   | `value = sum(int(i) for i in str(value))` |  C2  |   log_{10}   |
 |   3   |              `return value`               |  C3  |      1       |
 
 
@@ -166,10 +178,6 @@ Aquest es el disseny que hem implementat per resoldre el problema de manera **it
 
 
 Que equival a la formula (Taula representada en l'apartat "Taules de costos segons el disseny"):
-
-$T(n) = n + n + n^2 + n + n$
-
-$T(n) = 4n + n^2$
 
 $O(n) = n^2$
 
