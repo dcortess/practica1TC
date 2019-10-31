@@ -28,7 +28,7 @@ Cas promig: depen de la probabilitat de cada instancia.
 El cost seria el sumatori de (i+1)*(1/n)  que es igual a (n+1)/2
 
 
-El disseny que hem implementat per resoldre el problema de manera **recursiva** es el segÃ¼ent:
+El disseny que hem implementat per resoldre el problema de manera **recursiva** es el següent:
 
     def decryptRecursive(value):
         value = str(value)
@@ -226,3 +226,21 @@ Disseny iteratiu
     plt.legend()
     plt.show()
 
+#### Grafica del cost de l'algorisme
+
+import random
+import math
+import time
+
+n = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] #Numero de termes
+lis  = [1,4,9,16,25,36,49,64,81,100,121,144,169,196,225,256,289,324,361,400]
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.plot(n,lis, 'g',label='iteratiu')
+plt.xlabel('Numero de termes')
+plt.ylabel('Temps (microsegons)')
+plt.title('Temps Iteratiu')
+plt.legend()
+plt.show()
